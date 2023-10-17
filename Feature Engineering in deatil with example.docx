@@ -1,0 +1,46 @@
+Feature engineering is the process of creating new features from existing data to improve the performance of machine learning models. In the context of Natural Language Processing (NLP), feature engineering involves transforming text data into numerical representations that capture important information for the given task. Here's a detailed explanation of common feature engineering techniques used in NLP, along with examples for each:
+
+1. **Bag of Words (BoW):**
+   - **Description:** BoW is a simple feature engineering technique that represents text as a matrix of word frequencies or presence/absence.
+   - **Example:** Consider two documents:
+     - Document 1: "I love machine learning."
+     - Document 2: "Machine learning is fascinating."
+   - The BoW representation might look like this:
+     ```
+     | "I" | "love" | "machine" | "learning" | "is" | "fascinating" |
+     |----|------|----------|-----------|-----|--------------|
+     |  1   |   1   |    1      |     1      |  0  |     0        |
+     |  0   |   0   |    1      |     1      |  1  |     1        |
+     ```
+
+2. **Term Frequency-Inverse Document Frequency (TF-IDF):**
+   - **Description:** TF-IDF is a feature engineering technique that assigns numerical values to words based on their importance in a document and across a corpus.
+   - **Example:** Using the same documents from the BoW example, the TF-IDF values for the word "learning" might look like this:
+     - TF-IDF("learning", Document 1) = (1 / 4) * log(2 / 2) = 0
+     - TF-IDF("learning", Document 2) = (1 / 5) * log(2 / 2) = 0
+
+3. **Word Embeddings (e.g., Word2Vec, GloVe):**
+   - **Description:** Word embeddings are dense, continuous vector representations of words, capturing semantic relationships between words.
+   - **Example:** The word "king" might be represented as a vector like [0.2, -0.3, 0.8, ...], and "queen" might have a similar representation, reflecting the relationship between the two words.
+
+4. **Doc2Vec:**
+   - **Description:** Doc2Vec extends word embeddings to generate vector representations for entire documents, capturing the semantic content of the document in a continuous vector space.
+   - **Example:** Using Doc2Vec, each document is represented by a vector. For instance, the vector representation of Document 1 could be [0.1, 0.5, -0.2, ...].
+
+5. **Named Entity Recognition (NER):**
+   - **Description:** NER is a technique that extracts entities such as names, locations, and dates from text and represents them as features.
+   - **Example:** In the sentence "Apple Inc. is headquartered in Cupertino," NER would identify "Apple Inc." as an organization and "Cupertino" as a location.
+
+6. **Part-of-Speech Tagging:**
+   - **Description:** Part-of-speech tagging assigns a part-of-speech label (e.g., noun, verb, adjective) to each word in a sentence, providing information about the grammatical structure.
+   - **Example:** In the sentence "The cat chased the mouse," part-of-speech tagging would label "cat" as a noun and "chased" as a verb.
+
+7. **Sentiment Scores:**
+   - **Description:** Sentiment analysis tools can be used to calculate sentiment scores for text data, which can be used as features.
+   - **Example:** A positive sentiment score could be assigned to the sentence "I love this product," while a negative score might be assigned to "This product is terrible."
+
+8. **Text Length Features:**
+   - **Description:** Features related to the length of text, such as word count, character count, and sentence count, can provide information for certain NLP tasks.
+   - **Example:** The word count for a document is a text length feature.
+
+Feature engineering is a creative and task-specific process, and the choice of techniques depends on the particular NLP task and the characteristics of the data. Effective feature engineering can significantly impact the performance of NLP models.
