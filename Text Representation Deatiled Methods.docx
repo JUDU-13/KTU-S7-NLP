@@ -1,0 +1,42 @@
+Let's dive deeper into these common text representation techniques in NLP with examples:
+
+1. **Bag of Words (BoW):**
+   - The Bag of Words representation treats each document as an unordered collection of words and represents it as a matrix where each row corresponds to a document, and each column represents a unique word from the entire corpus. The values in the matrix represent the frequency of each word's occurrence in each document.
+
+   **Example:**
+   Consider a corpus with three documents:
+   - Document 1: "I love machine learning."
+   - Document 2: "Machine learning is fascinating."
+   - Document 3: "I love NLP."
+
+   The BoW representation for these documents could look like this:
+   
+   |  "I"  | "love" | "machine" | "learning" | "is" | "fascinating" | "NLP" |
+   |-------|-------|-----------|------------|-----|--------------|-------|
+   |   1   |   1   |    1      |     1      |  0  |     0        |   0   |
+   |   0   |   1   |    1      |     1      |  1  |     1        |   0   |
+   |   1   |   1   |    0      |     1      |  0  |     0        |   1   |
+
+2. **Term Frequency-Inverse Document Frequency (TF-IDF):**
+   - TF-IDF represents the importance of each word in a document relative to a corpus. It takes into account both the frequency of the word in the document (term frequency) and its rarity in the entire corpus (inverse document frequency).
+
+   **Example:**
+   Using the same corpus, the TF-IDF values for the word "learning" in each document may look like this:
+
+   - TF-IDF("learning", Document 1) = (1 / 4) * log(3 / 2) ≈ 0.125
+   - TF-IDF("learning", Document 2) = (1 / 5) * log(3 / 2) ≈ 0.1
+   - TF-IDF("learning", Document 3) = (1 / 4) * log(3 / 2) ≈ 0.125
+
+3. **Word Embeddings:**
+   - Word embeddings represent words as dense vectors in a continuous vector space. These vectors are trained to capture semantic and syntactic relationships between words. Word2Vec and GloVe are popular methods for generating word embeddings.
+
+   **Example:**
+   Word embeddings are typically high-dimensional vectors (e.g., 100, 300 dimensions). For the word "learning," its word embedding vector might look like: [0.2, -0.3, 0.8, ...].
+
+4. **Doc2Vec:**
+   - Doc2Vec extends word embeddings to generate vector representations for entire documents. It captures the semantic content of a document in a continuous vector space.
+
+   **Example:**
+   Using Doc2Vec, each document is represented by a vector. For instance, the vector representation of Document 1 could be: [0.1, 0.5, -0.2, ...].
+
+These representations are used in various NLP tasks. BoW and TF-IDF are often employed in text classification and information retrieval. Word embeddings and Doc2Vec are used in tasks like sentiment analysis, document clustering, and semantic search, where capturing word semantics and document context is crucial.
